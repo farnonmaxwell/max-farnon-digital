@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max Farnon Digital | Professional Websites for Local Businesses | Pompano Beach, FL</title>
+<meta name="description" content="Max Farnon Digital builds professional websites and digital foundations for local businesses in Pompano Beach, FL. No jargon. No empty promises. Just honest work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0D1B3E;
+  --gold: #C9A02E;
+  --gold-light: #D4B44A;
+  --white: #FFFFFF;
+  --off-white: #FAFAFA;
+  --pale-grey: #F3F4F6;
+  --light-grey: #E8E9EC;
+  --mid-grey: #9CA3AF;
+  --text-dark: #1F2937;
+  --text-body: #4B5563;
+  --text-light: #6B7280;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --shadow-sm: 0 1px 3px rgba(13,27,62,0.06);
+  --shadow-md: 0 4px 16px rgba(13,27,62,0.08);
+  --shadow-lg: 0 8px 32px rgba(13,27,62,0.10);
+  --radius: 8px;
+  --radius-lg: 16px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-body);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  color: var(--navy);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+a { text-decoration: none; color: inherit; transition: color var(--transition); }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 2px solid transparent;
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+.btn-gold:hover {
+  background: transparent;
+  color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-outline:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition);
+  padding: 16px 0;
+}
+.nav.scrolled {
+  border-bottom-color: var(--light-grey);
+  box-shadow: var(--shadow-sm);
+  padding: 10px 0;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo svg { height: 40px; width: auto; }
+.nav.scrolled .nav-logo svg { height: 34px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-body);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width var(--transition);
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  padding: 10px 24px !important;
+  font-size: 0.85rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Mobile nav */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  transition: all var(--transition);
+  border-radius: 2px;
+}
+.nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.mobile-menu.open { display: flex; opacity: 1; }
+.mobile-menu a {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+.mobile-menu a:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; z-index: 1001; }
+}
+
+/* ===== SECTION STYLES ===== */
+.section {
+  padding: 100px 0;
+}
+.section-pale {
+  background: var(--pale-grey);
+}
+.section-offwhite {
+  background: var(--off-white);
+}
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+.section-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 16px;
+}
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+.gold-line {
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(160deg, var(--white) 0%, var(--off-white) 50%, var(--pale-grey) 100%);
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,160,46,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13,27,62,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+.hero-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease forwards;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s ease 0.15s forwards;
+  opacity: 0;
+}
+.hero h1 span { color: var(--gold); }
+.hero-text {
+  font-size: 1.15rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 560px;
+  animation: fadeInUp 0.8s ease 0.3s forwards;
+  opacity: 0;
+}
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.45s forwards;
+  opacity: 0;
+}
+.hero-trust {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeInUp 0.8s ease 0.6s forwards;
+  opacity: 0;
+}
+.hero-trust-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--gold);
+}
+.hero-trust span {
+  font-size: 0.88rem;
+  color: var(--text-light);
+}
+
+/* ===== WHY DIGITAL ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 60px;
+}
+.stat-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  border: 1px solid var(--light-grey);
+  transition: all var(--transition);
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  background: var(--pale-grey);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+.why-text {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  border: 1px solid var(--light-grey);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.service-card.featured {
+  grid-column: 1 / -1;
+  background: var(--off-white);
+  border-color: var(--gold);
+  border-width: 2px;
+}
+.service-card.featured::before { transform: scaleX(1); }
+.service-price {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.service-name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.service-desc {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-body);
+}
+.service-features li svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2.5;
+}
+.services-note {
+  max-width: 700px;
+  margin: 40px auto 0;
+  text-align: center;
+  padding: 24px 32px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  font-size: 0.95rem;
+  color: var(--text-body);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card.featured { grid-column: 1; }
+}
+
+/* ===== HOW IT WORKS ===== */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+}
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--navy), var(--gold));
+  opacity: 0.3;
+}
+.step-card {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.step-number {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  transition: all var(--transition);
+}
+.step-card:hover .step-number {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+  transform: scale(1.08);
+}
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.step-text {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
+  .steps-grid::before { display: none; }
+}
+@media (max-width: 480px) {
+  .steps-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== ABOUT ===== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-images {
+  position: relative;
+}
+.about-img-main {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4/5;
+}
+.about-img-secondary {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--white);
+}
+.about-content .section-label { text-align: left; }
+.about-name {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 4px;
+}
+.about-title {
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.about-text {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.about-highlight {
+  display: flex;
+  gap: 32px;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--light-grey);
+}
+.about-highlight-item {
+  text-align: center;
+}
+.about-highlight-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+}
+.about-highlight-label {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.about-team-img {
+  margin-top: 60px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  object-fit: cover;
+  max-height: 320px;
+}
+.about-team-caption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .about-layout { grid-template-columns: 1fr; gap: 40px; }
+  .about-img-secondary { width: 140px; height: 140px; right: -10px; bottom: -20px; }
+  .about-highlight { gap: 20px; }
+}
+
+/* ===== TRANSPARENCY ===== */
+.transparency-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--shadow-sm);
+}
+.transparency-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.transparency-card p {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.transparency-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.transparency-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-body);
+}
+.transparency-list li svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: #DC2626;
+  fill: none;
+  stroke-width: 2.5;
+}
+.transparency-bottom {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--light-grey);
+  font-weight: 500;
+  color: var(--navy);
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .transparency-list { grid-template-columns: 1fr; }
+  .transparency-card { padding: 28px 20px; }
+}
+
+/* ===== CONTACT ===== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.contact-info h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.contact-info > p {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 32px;
+}
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.contact-detail-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--pale-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-detail-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.8;
+}
+.contact-detail-text strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--navy);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.contact-detail-text span {
+  font-size: 0.95rem;
+  color: var(--text-body);
+}
+.contact-detail-text a {
+  color: var(--text-body);
+}
+.contact-detail-text a:hover {
+  color: var(--gold);
+}
+
+.contact-form {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  border: 1px solid var(--light-grey);
+  box-shadow: var(--shadow-sm);
+}
+.contact-form h3 {
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--light-grey);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background: var(--off-white);
+  transition: all var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(201,160,46,0.1);
+}
+.form-group textarea {
+  height: 120px;
+  resize: vertical;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: var(--navy);
+  color: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.form-submit:hover {
+  background: transparent;
+  color: var(--navy);
+}
+
+@media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--off-white);
+  border-top: 1px solid var(--light-grey);
+  padding: 60px 0 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  margin-top: 16px;
+  line-height: 1.6;
+  max-width: 320px;
+}
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  font-style: italic;
+  margin-top: 16px !important;
+}
+.footer h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-body);
+}
+.footer-links li {
+  margin-bottom: 10px;
+}
+.footer-links a {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+.footer-links a:hover {
+  color: var(--gold);
+}
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--pale-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+.footer-social a:hover {
+  background: var(--navy);
+}
+.footer-social a:hover svg { stroke: var(--white); }
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-light);
+  fill: none;
+  stroke-width: 1.8;
+}
+.footer-bottom {
+  border-top: 1px solid var(--light-grey);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p {
+  font-size: 0.82rem;
+  color: var(--mid-grey);
+}
+
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+  border: none;
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { background: var(--gold); transform: translateY(-3px); }
+.back-to-top svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#home" class="nav-logo">
+      <!-- SVG LOGO -->
+      <svg viewBox="0 0 220 55" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="28" font-family="'Cormorant Garamond', Georgia, serif" font-size="22" font-weight="700" fill="#0D1B3E" letter-spacing="3">MAX FARNON</text>
+        <line x1="155" y1="4" x2="170" y2="38" stroke="#C9A02E" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="60" y="50" font-family="'Outfit', sans-serif" font-size="12" font-weight="600" fill="#C9A02E" letter-spacing="6">DIGITAL</text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#why-digital">Why Digital</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn btn-gold nav-cta">Free Consultation</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMobile()">Home</a>
+  <a href="#why-digital" onclick="closeMobile()">Why Digital</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#process" onclick="closeMobile()">Process</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#transparency" onclick="closeMobile()">Transparency</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-label">Pompano Beach, FL &mdash; Digital Agency</div>
+      <h1>Your Business Deserves to Be <span>Found Online</span></h1>
+      <p class="hero-text">We build professional websites and digital foundations for local businesses. No jargon. No empty promises. Just honest work.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-gold">Get a Free Consultation</a>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+      <div class="hero-trust">
+        <svg class="hero-trust-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <span>Trusted by local businesses across South Florida</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY DIGITAL ===== -->
+<section class="section section-pale" id="why-digital">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">The Reality</span>
+      <h2 class="section-title">Why Your Business Needs a Digital Presence</h2>
+      <p class="section-subtitle">These aren't opinions. They're facts. And they explain why your competitors who are online are getting the customers you're missing.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card animate-on-scroll">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <div class="stat-number">97%</div>
+        <div class="stat-label">of consumers search online for local businesses before visiting</div>
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="stat-number">46%</div>
+        <div class="stat-label">of all Google searches have local intent — people looking for businesses nearby</div>
+      </div>
+      <div class="stat-card animate-on-scroll">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <div class="stat-number">88%</div>
+        <div class="stat-label">of mobile searches for local businesses result in a call or visit within 24 hours</div>
+      </div>
+    </div>
+
+    <p class="why-text animate-on-scroll">If your business doesn't have a professional online presence, you're invisible to the majority of potential customers. It's not about being trendy — it's about being findable. We help you get there without the complexity or the hard sell.</p>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Services &amp; Pricing</h2>
+      <p class="section-subtitle">Clear pricing. No hidden fees. No contracts you can't get out of. Just straightforward services that get your business online properly.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="services-grid">
+      <!-- Website Build -->
+      <div class="service-card animate-on-scroll">
+        <div class="service-price">$995</div>
+        <div class="service-name">Professional Website Build</div>
+        <p class="service-desc">Your digital storefront. Clean, mobile-friendly, professional. Pay once, own it.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Custom design tailored to your business</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Mobile-responsive on all devices</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Contact forms, maps, and essential features</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You own it — no recurring fees for the site itself</li>
+        </ul>
+      </div>
+
+      <!-- Google Business -->
+      <div class="service-card animate-on-scroll">
+        <div class="service-price">$295</div>
+        <div class="service-name">Google Business Profile Setup</div>
+        <p class="service-desc">When someone searches for your type of business in your area, you need to appear. This makes that happen.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Full Google Business Profile creation</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Optimised for local search visibility</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Photos, hours, services, and descriptions</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Guidance on getting and managing reviews</li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="service-card animate-on-scroll">
+        <div class="service-price">$395</div>
+        <div class="service-name">Social Media Setup &amp; Branding</div>
+        <p class="service-desc">Professional, cohesive social media profiles that match your brand and make your business look established.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Facebook, Instagram, and LinkedIn setup</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Consistent branding across all platforms</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Profile and cover images designed</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Bio and description copywriting</li>
+        </ul>
+      </div>
+
+      <!-- Content Creation -->
+      <div class="service-card animate-on-scroll">
+        <div class="service-price">From $300<span style="font-size:0.9rem;font-weight:400;color:var(--text-light)">/month</span></div>
+        <div class="service-name">Content Creation</div>
+        <p class="service-desc">Regular blog posts and social media content that keeps your business active and visible online.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Blog posts written for your audience</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Social media content calendar</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>SEO-friendly writing</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Consistent brand voice</li>
+        </ul>
+      </div>
+
+      <!-- Monthly Maintenance -->
+      <div class="service-card animate-on-scroll">
+        <div class="service-price">$250<span style="font-size:0.9rem;font-weight:400;color:var(--text-light)">/month</span></div>
+        <div class="service-name">Monthly Maintenance</div>
+        <p class="service-desc">For businesses that genuinely need regular updates — restaurants, salons, event venues, and similar.</p>
+        <ul class="service-features">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Regular content and menu/service updates</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Security and software updates</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Monthly performance check-in</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Priority email support</li>
+        </ul>
+      </div>
+
+      <!-- Bundle -->
+      <div class="service-card featured animate-on-scroll">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+          <div class="service-price">$1,495</div>
+          <span style="background:var(--gold);color:var(--white);font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:0.08em;">Best Value</span>
+        </div>
+        <div class="service-name">Complete Launch Bundle</div>
+        <p class="service-desc">Everything you need to go from invisible to professional, in one package. Website + Google Business Profile + Social Media Setup. Save $190.</p>
+        <ul class="service-features" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Professional website build</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Google Business Profile setup</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Social media setup &amp; branding</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Cohesive brand identity</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Complete digital foundation</li>
+          <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>One-off payment, no contracts</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="services-note animate-on-scroll">
+      "Not every business needs a monthly retainer, and we'll be the first to tell you if you don't. Our job is to set you up properly — not to create dependency."
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section section-pale" id="process">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Simple &amp; Straightforward</span>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtitle">No complicated processes. No months of waiting. Just four clear steps from conversation to live.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card animate-on-scroll">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Free Consultation</h3>
+        <p class="step-text">We listen, you talk. Tell us about your business, your customers, and what you need. No pressure, no obligation.</p>
+      </div>
+      <div class="step-card animate-on-scroll">
+        <div class="step-number">2</div>
+        <h3 class="step-title">We Build</h3>
+        <p class="step-text">We create your professional website and digital presence. Clean design, mobile-friendly, built to represent your business properly.</p>
+      </div>
+      <div class="step-card animate-on-scroll">
+        <div class="step-number">3</div>
+        <h3 class="step-title">You Review</h3>
+        <p class="step-text">We walk you through everything in plain English. No tech jargon. You understand exactly what you're getting and how it works.</p>
+      </div>
+      <div class="step-card animate-on-scroll">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Go Live</h3>
+        <p class="step-text">Your business goes live online. Professional, visible, and ready for customers to find you. That's it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-images animate-on-scroll">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663360188294/zmrNaqgeAsfetWQR.jpg" alt="Max Farnon - Founder of Max Farnon Digital" class="about-img-main">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663360188294/FVJHKYXoqinmeMaw.png" alt="Max Farnon" class="about-img-secondary">
+      </div>
+      <div class="about-content animate-on-scroll">
+        <span class="section-label">About</span>
+        <h2 class="about-name">Max Farnon</h2>
+        <div class="about-title">Founder</div>
+        <p class="about-text">I'm British, based in Pompano Beach, Florida, and I've spent my career in the digital world — not selling it, but building it.</p>
+        <p class="about-text">For over 11 years, I was part of the team at <strong>Doximity</strong>, a leading healthcare technology company. I helped take that company through a <strong>$600 million IPO</strong> and watched it grow to a multi-billion dollar valuation. I understand what professional digital presence looks like at the highest level.</p>
+        <p class="about-text">After leaving corporate life, I built the <strong>Empower Over 50</strong> YouTube channel from scratch — no budget, no team — to over <strong>368,000 views</strong> and <strong>4 million impressions</strong>. That experience proved something important: I don't just understand digital strategy in theory. I can build an audience from nothing.</p>
+        <p class="about-text">I founded Max Farnon Digital because I saw local businesses struggling to get the professional online presence that larger companies take for granted. You deserve the same quality. That's what we deliver.</p>
+        <div class="about-highlight">
+          <div class="about-highlight-item">
+            <div class="about-highlight-num">11+</div>
+            <div class="about-highlight-label">Years in Tech</div>
+          </div>
+          <div class="about-highlight-item">
+            <div class="about-highlight-num">$600M</div>
+            <div class="about-highlight-label">IPO Experience</div>
+          </div>
+          <div class="about-highlight-item">
+            <div class="about-highlight-num">368K+</div>
+            <div class="about-highlight-label">YouTube Views</div>
+          </div>
+          <div class="about-highlight-item">
+            <div class="about-highlight-num">4M+</div>
+            <div class="about-highlight-label">Impressions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="animate-on-scroll" style="max-width:800px;margin:0 auto;">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663360188294/COqBCRplngunvISp.jpg" alt="Max Farnon at Doximity" class="about-team-img">
+      <p class="about-team-caption">Max (centre) with the team at Doximity — where he spent 11+ years helping build a healthcare technology leader</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRANSPARENCY ===== -->
+<section class="section section-pale" id="transparency">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Honesty First</span>
+      <h2 class="section-title">What We Don't Do</h2>
+      <p class="section-subtitle">We believe transparency is a strength, not a weakness. Here's what you won't find on our service list.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="transparency-card animate-on-scroll">
+      <h3>We're honest about our boundaries</h3>
+      <p>There are things we don't offer — and we think you should know that upfront, not find out after you've signed a contract.</p>
+      <ul class="transparency-list">
+        <li>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Paid advertising management
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Facebook or Google Ads
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Advanced SEO campaigns
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Complex marketing funnels
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Guaranteed revenue increases
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Promises we can't keep
+        </li>
+      </ul>
+      <p>Anyone who guarantees specific financial returns from digital marketing is not being straight with you. The digital world doesn't work that way, and anyone who says otherwise is selling you something.</p>
+      <div class="transparency-bottom">We focus on what we do brilliantly: building you a professional digital foundation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Free Digital Consultation</h2>
+      <p class="section-subtitle">No obligation. No pressure. Just a conversation about your business and how we might help. If we're not the right fit, we'll tell you.</p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-info animate-on-scroll">
+        <h3>Let's Talk About Your Business</h3>
+        <p>Whether you're starting from scratch or need to upgrade your existing online presence, we're here to help. Reach out however suits you best.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Phone</strong>
+            <span><a href="tel:+19549918520">(954) 991-8520</a></span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <span><a href="mailto:max@maxfarnondigital.com">max@maxfarnondigital.com</a></span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Address</strong>
+            <span>777 South Federal Highway<br>Pompano Beach, FL 33062</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <strong>Hours</strong>
+            <span>Monday – Friday: 9am – 6pm EST<br>Weekends: By appointment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form animate-on-scroll">
+        <h3>Send Us a Message</h3>
+        <form onsubmit="event.preventDefault(); alert('Thank you for your message! We\'ll be in touch within 24 hours.');">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="(954) 000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="john@yourbusiness.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Tell Us About Your Business</label>
+            <textarea id="message" placeholder="What does your business do? What are you looking for help with?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request Free Consultation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg viewBox="0 0 220 55" xmlns="http://www.w3.org/2000/svg" height="44">
+          <text x="0" y="28" font-family="'Cormorant Garamond', Georgia, serif" font-size="22" font-weight="700" fill="#0D1B3E" letter-spacing="3">MAX FARNON</text>
+          <line x1="155" y1="4" x2="170" y2="38" stroke="#C9A02E" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="60" y="50" font-family="'Outfit', sans-serif" font-size="12" font-weight="600" fill="#C9A02E" letter-spacing="6">DIGITAL</text>
+        </svg>
+        <p>Professional websites and digital foundations for local businesses in Pompano Beach and across South Florida.</p>
+        <p class="footer-tagline">"Plain English. Honest Work."</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#why-digital">Why Digital</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+19549918520">(954) 991-8520</a></li>
+          <li><a href="mailto:max@maxfarnondigital.com">max@maxfarnondigital.com</a></li>
+          <li>777 S Federal Hwy</li>
+          <li>Pompano Beach, FL 33062</li>
+        </ul>
+        <div class="footer-social">
+          <!-- Facebook -->
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Max Farnon Digital. All rights reserved.</p>
+      <p>Pompano Beach, FL &bull; Serving local businesses across South Florida</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Navigation scroll effect
+const nav = document.getElementById('nav');
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  if (window.scrollY > 400) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Mobile menu
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+function closeMobile() {
+  navToggle.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+  observer.observe(el);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

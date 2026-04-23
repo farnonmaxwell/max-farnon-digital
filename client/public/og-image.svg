@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="g" cx="85%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#B8862F" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0E2A47" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0E2A47"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#FAF7F1">
+    <text x="72" y="170" font-size="24" letter-spacing="6" fill="#B8862F">MAX FARNON DIGITAL</text>
+    <text x="72" y="300" font-size="76" font-weight="600">AI-Powered Solutions</text>
+    <text x="72" y="390" font-size="76" font-weight="600">for Modern Businesses.</text>
+    <rect x="72" y="430" width="80" height="3" fill="#B8862F"/>
+    <text x="72" y="490" font-size="26" fill="#FAF7F1" opacity="0.8">Strategy. Content systems. Digital operations.</text>
+  </g>
+</svg>

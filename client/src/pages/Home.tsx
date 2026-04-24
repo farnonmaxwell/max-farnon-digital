@@ -1,27 +1,41 @@
 import { Link } from "wouter";
 import {
   ArrowRight,
-  Sparkles,
-  LayoutDashboard,
-  Radio,
-  Quote,
+  ArrowUpRight,
+  Hammer,
+  Building2,
+  Briefcase,
+  Compass,
 } from "lucide-react";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/CTASection";
 import { useMeta } from "@/hooks/useMeta";
 import { SITE } from "@/lib/site";
+import { PRODUCTS } from "@/lib/products";
 
 /**
- * Home page, editorial hero with dossier panel, three service pillars, social proof strip, CTA.
+ * Home page, product-led hero with dossier panel, product suite grid, audience bands, advisory strip, CTA.
  * Style: navy + ivory + gold, Fraunces display, Inter body, gold underlines and numeric markers.
  */
 export default function Home() {
   useMeta({
-    title: "Max Farnon Digital, AI-Powered Solutions for Modern Businesses",
+    title: "Max Farnon Digital, AI-Powered Tools for Small Businesses",
     description:
-      "A digital consultancy and AI solutions agency. Decades of business experience combined with cutting-edge AI expertise, helping modern businesses adopt AI with clarity.",
+      "Max Farnon Digital builds AI-powered software for small businesses and tradespeople. A suite of tools for job costing, proposals, lead generation, cash flow, and content, with optional advisory on the side.",
     path: "/",
   });
+
+  const groupIcon: Record<string, React.ReactNode> = {
+    "For Contractors & Trades": <Hammer className="h-5 w-5" />,
+    "For Business Owners": <Building2 className="h-5 w-5" />,
+    "For Agencies & Consultants": <Briefcase className="h-5 w-5" />,
+  };
+
+  const featured = [
+    PRODUCTS.find((p) => p.id === "job-cost-tracker-pro")!,
+    PRODUCTS.find((p) => p.id === "money-in")!,
+    PRODUCTS.find((p) => p.id === "service-proposal-builder")!,
+  ];
 
   return (
     <Layout>
@@ -38,32 +52,30 @@ export default function Home() {
         <div className="container relative pt-10 md:pt-20 pb-14 md:pb-24">
           <div className="grid md:grid-cols-12 gap-10 items-end">
             <div className="md:col-span-8">
-              <div className="eyebrow fade-up">A digital consultancy, founded by Max Farnon</div>
+              <div className="eyebrow fade-up">A product studio, founded by Max Farnon</div>
               <h1 className="display fade-up delay-1 mt-6 text-4xl sm:text-5xl md:text-7xl text-[var(--navy)]">
-                AI-Powered Solutions for Modern Businesses.
+                AI-powered tools for the people who actually run small businesses.
               </h1>
               <div className="mt-8 h-px w-20 bg-[var(--gold)] fade-up delay-2" />
               <p className="fade-up delay-2 mt-8 max-w-2xl text-lg md:text-xl leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_75%,transparent)]">
-                Three decades of business operations experience, combined with cutting-edge AI
-                expertise. Max Farnon Digital helps small and mid-size businesses put AI to work
-                without the complexity, the jargon, or the hype.
+                Max Farnon Digital builds a suite of focused SaaS products for contractors, tradespeople, and owner-operators. Job costing, proposals, lead generation, cash flow, and content playbooks, each one designed to pay for itself in a single job or a single week.
               </p>
               <div className="fade-up delay-3 mt-10 flex flex-col sm:flex-row gap-3">
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-[var(--navy)] text-[var(--ivory)] font-semibold text-sm rounded-sm hover:bg-[var(--navy-soft)] transition-colors"
+                >
+                  See the product suite
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
                 <a
                   href={SITE.calendlyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-[var(--navy)] text-[var(--ivory)] font-semibold text-sm rounded-sm hover:bg-[var(--navy-soft)] transition-colors"
-                >
-                  Book a Free Strategy Call
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-                <Link
-                  href="/services"
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 border border-[var(--navy)] text-[var(--navy)] font-semibold text-sm rounded-sm hover:bg-[var(--navy)] hover:text-[var(--ivory)] transition-colors"
                 >
-                  Explore Services
-                </Link>
+                  Book a strategy session
+                </a>
               </div>
             </div>
 
@@ -73,15 +85,15 @@ export default function Home() {
                 <div className="eyebrow">Dossier</div>
                 <ul className="mt-6 space-y-6">
                   <li className="flex items-baseline gap-4">
-                    <span className="font-serif text-3xl text-[var(--gold)] leading-none w-14">30+</span>
+                    <span className="font-serif text-3xl text-[var(--gold)] leading-none w-14">6</span>
                     <span className="text-sm text-[color:color-mix(in_oklch,var(--navy)_80%,transparent)]">
-                      Years in business operations and management.
+                      Live SaaS products across contractor, owner, and agency workflows.
                     </span>
                   </li>
                   <li className="flex items-baseline gap-4">
-                    <span className="font-serif text-3xl text-[var(--gold)] leading-none w-14">3</span>
+                    <span className="font-serif text-3xl text-[var(--gold)] leading-none w-14">30+</span>
                     <span className="text-sm text-[color:color-mix(in_oklch,var(--navy)_80%,transparent)]">
-                      Service pillars: AI strategy, content systems, digital operations.
+                      Years of operating experience behind every product decision.
                     </span>
                   </li>
                   <li className="flex items-baseline gap-4">
@@ -105,138 +117,153 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Service pillars */}
+      {/* Featured products */}
       <section className="border-t border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)]">
         <div className="container py-16 md:py-24">
           <div className="grid md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-7">
-              <div className="eyebrow">What we do</div>
+              <div className="eyebrow">The product suite</div>
               <h2 className="display mt-4 text-3xl md:text-5xl text-[var(--navy)]">
-                Three pillars, built for businesses that want results, not buzzwords.
+                Six tools, built for the real jobs small businesses do every week.
               </h2>
             </div>
             <div className="md:col-span-5">
               <p className="text-base md:text-lg leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_72%,transparent)]">
-                Every engagement begins with the same question: where does AI save meaningful time
-                or money, and where is it simply noise? Here is where we focus.
+                Every product is shipped, priced transparently, and focused on one job. No enterprise suites, no twelve-month rollouts. Pick the tool that fits, start using it this week.
               </p>
             </div>
           </div>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {[
-              {
-                num: "01",
-                icon: <Sparkles className="h-5 w-5" />,
-                title: "AI Strategy & Implementation",
-                desc: "Tool audits, workflow automation, and custom AI assistants that quietly pay for themselves.",
-                href: "/services#ai-strategy",
-              },
-              {
-                num: "02",
-                icon: <Radio className="h-5 w-5" />,
-                title: "Content & Brand Systems",
-                desc: "YouTube, podcast, and newsletter systems for thought leaders and audience-building brands.",
-                href: "/services#content-systems",
-              },
-              {
-                num: "03",
-                icon: <LayoutDashboard className="h-5 w-5" />,
-                title: "Digital Operations",
-                desc: "Dashboards, CRM integrations, and workflow design for teams drowning in manual work.",
-                href: "/services#digital-operations",
-              },
-            ].map((p) => (
-              <Link
-                key={p.num}
-                href={p.href}
+            {featured.map((p) => (
+              <a
+                key={p.id}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative flex flex-col p-8 bg-[var(--card)] border border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)] rounded-sm hover:border-[var(--navy)] transition-colors"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-serif text-2xl text-[var(--gold)]">{p.num}</span>
                   <span className="flex items-center justify-center h-9 w-9 rounded-sm bg-[color:color-mix(in_oklch,var(--navy)_6%,transparent)] text-[var(--navy)]">
-                    {p.icon}
+                    {groupIcon[p.group]}
                   </span>
                 </div>
                 <h3 className="mt-8 text-xl font-serif font-semibold text-[var(--navy)]">
-                  {p.title}
+                  {p.name}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_70%,transparent)]">
-                  {p.desc}
+                  {p.tagline}
                 </p>
+                <div className="mt-6 inline-flex items-center h-7 px-2.5 text-[11px] font-semibold uppercase tracking-wider rounded-sm bg-[color:color-mix(in_oklch,var(--gold)_22%,transparent)] text-[var(--navy)] w-fit">
+                  {p.price}
+                </div>
                 <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--navy)] group-hover:text-[var(--gold)] transition-colors">
-                  Learn more
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  Open product
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
-              </Link>
+              </a>
             ))}
+          </div>
+
+          <div className="mt-10">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--navy)] hover:text-[var(--gold)] transition-colors"
+            >
+              See all six products and pricing
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Social proof */}
+      {/* Who it's for */}
       <section className="bg-[color:color-mix(in_oklch,var(--navy)_4%,transparent)] border-y border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)]">
         <div className="container py-16 md:py-24">
-          <div className="eyebrow">In good company</div>
+          <div className="eyebrow">Who it is for</div>
           <h2 className="display mt-4 text-2xl md:text-4xl text-[var(--navy)] max-w-3xl">
-            Trusted by founders, operators, and teams that prefer craft over clutter.
+            Built for operators, not enterprises.
           </h2>
 
-          {/* Client logos placeholder row */}
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
             {[
-              "Client Logo",
-              "Client Logo",
-              "Client Logo",
-              "Client Logo",
-              "Client Logo",
-              "Client Logo",
-            ].map((label, i) => (
+              {
+                icon: <Hammer className="h-5 w-5" />,
+                title: "Contractors and trades",
+                desc: "Job costing, proposals, and lead capture for crews running real work on real job sites.",
+              },
+              {
+                icon: <Building2 className="h-5 w-5" />,
+                title: "Owner-operators",
+                desc: "Cash flow, franchise analysis, and content playbooks for the owner wearing every hat.",
+              },
+              {
+                icon: <Briefcase className="h-5 w-5" />,
+                title: "Agencies and consultants",
+                desc: "White-label local lead sites and tooling for shops stacking recurring revenue.",
+              },
+            ].map((p, i) => (
               <div
-                key={i}
-                className="h-16 flex items-center justify-center border border-dashed border-[color:color-mix(in_oklch,var(--navy)_20%,transparent)] text-[11px] font-medium tracking-widest uppercase text-[color:color-mix(in_oklch,var(--navy)_55%,transparent)] rounded-sm"
-              >
-                {label}
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-14 grid md:grid-cols-2 gap-6">
-            {[
-              {
-                quote:
-                  "Max brings a rare combination: real operating experience and a clear-eyed view of where AI actually helps. No hype, just working systems.",
-                name: "Operator Testimonial",
-                role: "Founder, placeholder brand",
-              },
-              {
-                quote:
-                  "We stopped guessing and started shipping. The workflows he set up saved our team days every month within the first quarter.",
-                name: "Team Testimonial",
-                role: "COO, placeholder company",
-              },
-            ].map((t, i) => (
-              <figure
                 key={i}
                 className="bg-[var(--card)] border border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)] p-8 rounded-sm"
               >
-                <Quote className="h-5 w-5 text-[var(--gold)]" />
-                <blockquote className="mt-4 font-serif text-lg md:text-xl text-[var(--navy)] leading-snug">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-6 text-sm">
-                  <div className="font-semibold text-[var(--navy)]">{t.name}</div>
-                  <div className="text-[color:color-mix(in_oklch,var(--navy)_60%,transparent)]">
-                    {t.role}
-                  </div>
-                </figcaption>
-              </figure>
+                <span className="flex items-center justify-center h-9 w-9 rounded-sm bg-[color:color-mix(in_oklch,var(--navy)_6%,transparent)] text-[var(--navy)]">
+                  {p.icon}
+                </span>
+                <h3 className="mt-6 text-xl font-serif font-semibold text-[var(--navy)]">
+                  {p.title}
+                </h3>
+                <div className="mt-4 h-px w-10 bg-[var(--gold)]" />
+                <p className="mt-4 text-sm leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_75%,transparent)]">
+                  {p.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection />
+      {/* Advisory strip */}
+      <section className="border-b border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)]">
+        <div className="container py-16 md:py-24">
+          <div className="grid md:grid-cols-12 gap-10 items-center">
+            <div className="md:col-span-7">
+              <div className="eyebrow">Advisory, on the side</div>
+              <h2 className="display mt-4 text-3xl md:text-5xl text-[var(--navy)]">
+                Need help choosing the right tools or getting set up?
+              </h2>
+              <p className="mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_72%,transparent)]">
+                The products are self-serve and designed to be that way. When a business wants a second set of eyes on the stack, a rollout plan across a team, or a tailored AI workflow built around the suite, that is what the strategy session is for.
+              </p>
+            </div>
+            <div className="md:col-span-5 md:justify-self-end">
+              <div className="bg-[var(--card)] border border-[color:color-mix(in_oklch,var(--navy)_15%,transparent)] rounded-sm p-8">
+                <Compass className="h-6 w-6 text-[var(--gold)]" />
+                <h3 className="mt-4 font-serif text-xl text-[var(--navy)]">Strategy session</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_75%,transparent)]">
+                  A focused call to map your workflow, pick the right tools, and leave with a concrete next step. Honest fit assessment included.
+                </p>
+                <a
+                  href={SITE.calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 h-11 px-5 bg-[var(--navy)] text-[var(--ivory)] font-semibold text-sm rounded-sm hover:bg-[var(--navy-soft)] transition-colors"
+                >
+                  Book a strategy session
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CTASection
+        eyebrow="Start with a tool, or start with a conversation"
+        title="Pick a product. Or book a call."
+        description="The tools are live and self-serve. The call is there when you want a second opinion before committing."
+      />
     </Layout>
   );
 }

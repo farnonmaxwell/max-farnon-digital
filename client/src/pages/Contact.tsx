@@ -107,17 +107,18 @@ export default function Contact() {
                   <Field label="Company" name="company" type="text" autoComplete="organization" />
                   <div>
                     <label className="eyebrow text-[var(--navy)]" htmlFor="service">
-                      Service interest
+                      Reason for reaching out
                     </label>
                     <select
                       id="service"
                       name="service"
-                      defaultValue="ai-strategy"
+                      defaultValue="product-question"
                       className="mt-2 h-11 w-full bg-transparent border border-[color:color-mix(in_oklch,var(--navy)_18%,transparent)] px-3 text-sm text-[var(--navy)] rounded-sm focus:outline-none focus:border-[var(--navy)] focus:ring-2 focus:ring-[var(--gold)]/40"
                     >
-                      <option value="ai-strategy">AI Strategy & Implementation</option>
-                      <option value="content-systems">Content & Brand Systems</option>
-                      <option value="digital-operations">Digital Operations</option>
+                      <option value="product-question">Question about a specific product</option>
+                      <option value="strategy-session">Book a strategy session</option>
+                      <option value="white-label">White-label or reseller inquiry</option>
+                      <option value="press-partnerships">Press, podcast, or partnership</option>
                       <option value="not-sure">Not sure yet</option>
                     </select>
                   </div>
@@ -189,7 +190,7 @@ export default function Contact() {
             <div className="bg-[var(--navy)] text-[var(--ivory)] rounded-sm p-8">
               <div className="eyebrow text-[var(--gold)]">Book directly</div>
               <h3 className="mt-3 font-serif text-2xl">
-                Grab a 30-minute strategy call.
+                Grab a 30-minute strategy session.
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-[color:color-mix(in_oklch,var(--ivory)_80%,transparent)]">
                 Pick a time that works for you. No prep required.

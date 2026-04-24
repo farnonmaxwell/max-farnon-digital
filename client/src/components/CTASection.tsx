@@ -13,8 +13,8 @@ type Props = {
  */
 export default function CTASection({
   eyebrow = "Ready when you are",
-  title = "Book a free strategy call.",
-  description = "Thirty minutes, zero sales pitch. We will look at where AI can move the needle in your business, and where it cannot.",
+  title = "Pick a product, or book a session.",
+  description = "The product suite is live and self-serve. If you would rather talk through the right starting point first, a thirty-minute strategy session is on the table.",
 }: Props) {
   return (
     <section className="container py-16 md:py-24">
@@ -43,7 +43,7 @@ export default function CTASection({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 h-12 px-6 bg-[var(--gold)] text-[var(--navy)] font-semibold text-sm rounded-sm hover:bg-[var(--gold-soft)] transition-colors"
             >
-              Book a Free Strategy Call
+              Book a strategy session
               <ArrowRight className="h-4 w-4" />
             </a>
             <Link

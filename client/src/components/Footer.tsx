@@ -20,8 +20,7 @@ export default function Footer() {
               <span className="font-serif text-xl font-semibold">Max Farnon Digital</span>
             </Link>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-[color:color-mix(in_oklch,var(--ivory)_75%,transparent)]">
-              A digital consultancy and AI solutions agency helping modern businesses adopt AI
-              with clarity, craft, and measurable results.
+              A small product studio building AI-powered SaaS tools for contractors, tradespeople, and owner-operators. Advisory on the side, when you want it.
             </p>
             <p className="mt-4 text-sm text-[color:color-mix(in_oklch,var(--ivory)_70%,transparent)]">
               {SITE.location}

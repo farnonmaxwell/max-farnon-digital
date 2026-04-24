@@ -71,7 +71,7 @@ export default function Header() {
             href="/contact"
             className="inline-flex items-center h-10 px-5 text-sm font-semibold bg-[var(--navy)] text-[var(--ivory)] hover:bg-[var(--navy-soft)] transition-colors rounded-sm"
           >
-            Book a Call
+            Book a session
           </Link>
         </nav>
 
@@ -109,7 +109,7 @@ export default function Header() {
               href="/contact"
               className="mt-4 inline-flex items-center justify-center h-11 px-5 text-sm font-semibold bg-[var(--navy)] text-[var(--ivory)] rounded-sm"
             >
-              Book a Call
+              Book a session
             </Link>
           </nav>
         </div>

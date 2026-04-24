@@ -7,18 +7,18 @@ import { useMeta } from "@/hooks/useMeta";
 const values = [
   {
     num: "01",
-    title: "Human-first AI",
-    desc: "Technology serves people, not the other way around. Every system we build keeps a human in the loop on decisions that matter.",
+    title: "Built by an operator",
+    desc: "Every product starts from a problem I have personally lived inside a small business, not a pitch deck. If it would not help a real owner on a Tuesday morning, it does not ship.",
   },
   {
     num: "02",
-    title: "Practical over theoretical",
-    desc: "We skip the framework theater. If a tool does not save time, money, or stress within a reasonable window, it does not make the cut.",
+    title: "Priced to pay for itself",
+    desc: "Small businesses do not need another enterprise contract. Tools are priced so one saved hour, one closed proposal, or one recovered invoice covers the month.",
   },
   {
     num: "03",
-    title: "Results over buzzwords",
-    desc: "Dashboards, not decks. We measure what matters and we report honestly, including when something is not working yet.",
+    title: "Advisory without the agency",
+    desc: "Strategy sessions exist for people who want a second opinion or a rollout plan. They are not the main offer, and they never turn into a twelve-month retainer by default.",
   },
 ];
 
@@ -26,7 +26,7 @@ export default function About() {
   useMeta({
     title: "About Max Farnon",
     description:
-      "Three decades of business operations and management experience, now focused on helping modern businesses use AI as a force multiplier.",
+      "Max Farnon is a product builder and AI strategist focused on small businesses. Thirty years operating experience, now channelled into a suite of SaaS tools.",
     path: "/about",
   });
 
@@ -34,8 +34,8 @@ export default function About() {
     <Layout>
       <PageHeader
         eyebrow="About"
-        title="A working operator who finally found a force multiplier."
-        description="Max Farnon Digital is a small consultancy with a clear remit: help modern businesses put AI to work in ways that are boring, measurable, and honestly useful."
+        title="From agency owner to product builder."
+        description="Max Farnon Digital used to be an agency. It is now a small product studio that ships AI-powered tools for the people who actually run small businesses, with advisory on the side."
       />
 
       <section className="container pb-8">
@@ -47,15 +47,15 @@ export default function About() {
                 <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[var(--navy)] text-[var(--ivory)]">
                   <User className="h-7 w-7" />
                 </div>
-                <div className="mt-4 eyebrow">Image Placeholder</div>
+                <div className="mt-4 eyebrow">Portrait</div>
                 <div className="mt-1 text-xs text-[color:color-mix(in_oklch,var(--navy)_60%,transparent)]">
-                  Replace with professional headshot
+                  Professional headshot coming soon
                 </div>
               </div>
               <div className="mt-4 flex items-center gap-3">
                 <span className="font-serif text-sm text-[var(--gold)]">M.F.</span>
                 <span className="text-xs text-[color:color-mix(in_oklch,var(--navy)_65%,transparent)]">
-                  Photographed in South Florida.
+                  Writing from Pennsylvania, New York, Florida, and Cheshire.
                 </span>
               </div>
             </div>
@@ -64,25 +64,21 @@ export default function About() {
           {/* Story */}
           <div className="md:col-span-8 space-y-6 text-[17px] leading-[1.75] text-[var(--navy)]">
             <p>
-              Max Farnon spent more than thirty years running, building, and fixing businesses.
-              Operations, management, marketing systems, people, numbers, and the unglamorous
-              middle ground where most real work gets done.
+              Max Farnon spent more than thirty years running, building, and fixing small and mid-size businesses. Operations, management, marketing, people, numbers, and the unglamorous middle ground where most real work gets done.
             </p>
             <p>
-              After a career disruption in his mid-fifties, Max did what many people over 50 feel
-              pressured to avoid; he started again, this time with a new toolkit. The tools were
-              AI, automation, and a set of hard-won opinions about what actually moves a business
-              forward.
+              A career disruption in his mid-fifties forced a rebuild. Instead of reopening the same agency model, Max leaned into what he had been quietly learning for years: AI, automation, and the belief that small businesses deserve the same operating leverage that enterprises quietly buy for themselves.
             </p>
             <p>
-              Max Farnon Digital is the result: a consultancy that sits at the intersection of AI,
-              content, and operations. We work with founders and teams who are tired of the hype
-              cycle and want a pragmatic partner who has been in their seat. No moonshots; no
-              magic; just systems that work on a Tuesday morning.
+              Max Farnon Digital today is a small product studio. It ships a focused suite of SaaS tools for contractors, tradespeople, and owner-operators, with a sister line of products under the Empower Over 50 brand. The work he does for clients now sits behind the products, not in place of them.
             </p>
             <p>
-              In addition to client work, Max writes books, including{" "}
-              <span className="italic">A Beginner&rsquo;s Guide to AI</span>, and leads{" "}
+              Consulting and advisory are still offered, but only as a side door. The main offer is the tools. When a business wants a second set of eyes on the stack, a rollout plan, or a tailored AI workflow, a strategy session is the fastest way in.
+            </p>
+            <p>
+              Outside the studio, Max writes books, including{" "}
+              <span className="italic">A Beginner&rsquo;s Guide to AI</span> and{" "}
+              <span className="italic">Coming Home After 50</span>, records music from a home studio in Pennsylvania, and runs{" "}
               <a
                 href="https://empowerover50.com"
                 target="_blank"
@@ -91,7 +87,7 @@ export default function About() {
               >
                 Empower Over 50
               </a>
-              , a platform for people navigating work, identity, and community after fifty.
+              , a platform and product line for people navigating work, identity, and community after fifty.
             </p>
           </div>
         </div>
@@ -100,9 +96,9 @@ export default function About() {
       {/* Values */}
       <section className="border-t border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)] mt-16">
         <div className="container py-16 md:py-24">
-          <div className="eyebrow">Values</div>
+          <div className="eyebrow">Operating principles</div>
           <h2 className="display mt-4 text-3xl md:text-5xl text-[var(--navy)] max-w-3xl">
-            How we decide what to build, and what to leave alone.
+            How we decide what to ship, and what to leave on the cutting room floor.
           </h2>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
@@ -127,8 +123,8 @@ export default function About() {
 
       <CTASection
         eyebrow="Let&rsquo;s talk"
-        title="If any of this sounds like your kind of partner, we should meet."
-        description="A short call is the fastest way to see if we are a fit. Bring your messy spreadsheets and your best questions."
+        title="Questions about the tools, or about getting set up?"
+        description="A short call is the fastest way to see if any of this fits your situation. Bring your messy spreadsheets and your best questions."
       />
     </Layout>
   );

@@ -1,154 +1,76 @@
-import { ArrowRight, Layers } from "lucide-react";
+import { ArrowUpRight, Layers } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { useMeta } from "@/hooks/useMeta";
-
-type CaseStudy = {
-  num: string;
-  title: string;
-  tagline: string;
-  challenge: string;
-  approach: string;
-  results: string[];
-  tech: string[];
-  status: "Live" | "In Progress" | "Coming Soon";
-  href?: string;
-};
-
-const caseStudies: CaseStudy[] = [
-  {
-    num: "01",
-    title: "Empower Over 50",
-    tagline: "A content ecosystem for people navigating work and identity after fifty.",
-    challenge:
-      "Build a credible public platform from scratch, across YouTube, podcast, newsletter, and community, with a single operator and a finite number of hours each week.",
-    approach:
-      "Designed an AI-augmented content pipeline that turns a single long-form recording into a YouTube video, a podcast episode, a newsletter, and short social edits. Editorial stays human; repetitive production work is automated.",
-    results: [
-      "Launched across four channels in under a quarter",
-      "Weekly publishing cadence sustained by a single operator",
-      "Community foundations in place for future membership and programs",
-    ],
-    tech: ["YouTube", "Descript", "Beehiiv", "Notion", "ChatGPT", "Claude", "Zapier"],
-    status: "Live",
-    href: "https://empowerover50.com",
-  },
-  {
-    num: "02",
-    title: "Second Act Navigator",
-    tagline: "An AI-powered career assessment tool for adults 50 and over.",
-    challenge:
-      "Give professionals over fifty a private, honest way to explore a career reset, without surrendering their story to generic personality tests or opaque algorithms.",
-    approach:
-      "Designed a structured assessment flow that combines a values and strengths inventory with a guided AI conversation. Outputs include a personalized next-step plan and suggested roles, with the user always in control of the narrative.",
-    results: [
-      "Prototype shipped with end-to-end assessment flow",
-      "Guided AI conversation tuned for reflection, not prescription",
-      "Roadmap prepared for coaching and community integrations",
-    ],
-    tech: ["Next.js", "OpenAI", "Supabase", "Tailwind", "Vercel"],
-    status: "In Progress",
-  },
-  {
-    num: "03",
-    title: "Your Project Here",
-    tagline: "Placeholder for an upcoming client engagement.",
-    challenge:
-      "Reserved slot for an upcoming case study. Recent engagements have focused on small teams adopting AI for customer operations, content production, and reporting.",
-    approach:
-      "Typical engagements start with a ninety-minute diagnostic, followed by a focused four to eight week build, followed by a light-touch retainer for iteration.",
-    results: [
-      "Metrics captured from day one",
-      "Documentation and team enablement included",
-      "Handover designed so your team can own the system",
-    ],
-    tech: ["To be confirmed with the client"],
-    status: "Coming Soon",
-  },
-];
-
-function StatusPill({ status }: { status: CaseStudy["status"] }) {
-  const styles: Record<CaseStudy["status"], string> = {
-    Live: "bg-[color:color-mix(in_oklch,var(--gold)_22%,transparent)] text-[var(--navy)]",
-    "In Progress": "bg-[color:color-mix(in_oklch,var(--navy)_10%,transparent)] text-[var(--navy)]",
-    "Coming Soon":
-      "bg-transparent text-[color:color-mix(in_oklch,var(--navy)_60%,transparent)] border border-dashed border-[color:color-mix(in_oklch,var(--navy)_25%,transparent)]",
-  };
-  return (
-    <span
-      className={`inline-flex items-center h-6 px-2.5 text-[11px] font-semibold uppercase tracking-wider rounded-sm ${styles[status]}`}
-    >
-      {status}
-    </span>
-  );
-}
+import { PRODUCTS, EO50_PRODUCTS } from "@/lib/products";
+import { SITE } from "@/lib/site";
 
 export default function Portfolio() {
   useMeta({
-    title: "Case Studies",
+    title: "Portfolio",
     description:
-      "A selection of work from Max Farnon Digital, including Empower Over 50 and Second Act Navigator.",
+      "The Max Farnon Digital product portfolio. Six live SaaS products plus the Empower Over 50 product line, a separate brand focused on work and identity after fifty.",
     path: "/portfolio",
   });
 
   return (
     <Layout>
       <PageHeader
-        eyebrow="Case Studies"
-        title="Selected work, honest outcomes."
-        description="A small, deliberately chosen set of engagements. Each one represents a different slice of what Max Farnon Digital tends to do best: content ecosystems, AI-assisted products, and quiet operational infrastructure."
+        eyebrow="Portfolio"
+        title="The work is the product suite."
+        description="Every tool in the catalog is a live, shipping product. Each card below is both a portfolio piece and a link you can open right now."
       />
 
       <section className="container pb-8">
         <div className="space-y-8 md:space-y-10">
-          {caseStudies.map((c) => (
+          {PRODUCTS.map((p) => (
             <article
-              key={c.num}
+              key={p.id}
               className="group bg-[var(--card)] border border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)] rounded-sm p-8 md:p-12 hover:border-[var(--navy)] transition-colors"
             >
               <div className="grid md:grid-cols-12 gap-10">
                 <div className="md:col-span-4">
                   <div className="flex items-center justify-between">
                     <span className="font-serif text-4xl text-[var(--gold)] leading-none">
-                      {c.num}
+                      {p.num}
                     </span>
-                    <StatusPill status={c.status} />
+                    <span className="inline-flex items-center h-6 px-2.5 text-[11px] font-semibold uppercase tracking-wider rounded-sm bg-[color:color-mix(in_oklch,var(--gold)_22%,transparent)] text-[var(--navy)]">
+                      Live
+                    </span>
                   </div>
                   <h2 className="display mt-6 text-2xl md:text-3xl text-[var(--navy)]">
-                    {c.title}
+                    {p.name}
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_72%,transparent)]">
-                    {c.tagline}
+                    {p.tagline}
                   </p>
-                  {c.href && (
-                    <a
-                      href={c.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--navy)] hover:text-[var(--gold)] transition-colors"
-                    >
-                      Visit project
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </a>
-                  )}
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--navy)] hover:text-[var(--gold)] transition-colors"
+                  >
+                    Visit product
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
 
                 <div className="md:col-span-8 space-y-6">
                   <div>
-                    <div className="eyebrow">Challenge</div>
-                    <p className="mt-2 text-[var(--navy)] leading-relaxed">{c.challenge}</p>
+                    <div className="eyebrow">What it does</div>
+                    <p className="mt-2 text-[var(--navy)] leading-relaxed">{p.description}</p>
                   </div>
                   <div className="hairline" />
                   <div>
-                    <div className="eyebrow">Approach</div>
-                    <p className="mt-2 text-[var(--navy)] leading-relaxed">{c.approach}</p>
+                    <div className="eyebrow">Who it serves</div>
+                    <p className="mt-2 text-[var(--navy)] leading-relaxed">{p.audience}</p>
                   </div>
                   <div className="hairline" />
                   <div>
-                    <div className="eyebrow">Results</div>
+                    <div className="eyebrow">Capabilities</div>
                     <ul className="mt-3 space-y-2">
-                      {c.results.map((r, i) => (
+                      {p.capabilities.map((r, i) => (
                         <li key={i} className="flex items-start gap-3">
                           <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--gold)] shrink-0" />
                           <span className="text-[var(--navy)]">{r}</span>
@@ -157,20 +79,11 @@ export default function Portfolio() {
                     </ul>
                   </div>
                   <div className="hairline" />
-                  <div>
+                  <div className="flex flex-wrap items-center justify-between gap-4">
                     <div className="eyebrow flex items-center gap-2">
-                      <Layers className="h-3.5 w-3.5" /> Technologies
+                      <Layers className="h-3.5 w-3.5" /> Pricing
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {c.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="inline-flex items-center h-7 px-3 text-xs font-medium text-[var(--navy)] bg-[color:color-mix(in_oklch,var(--navy)_5%,transparent)] border border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)] rounded-sm"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                    <div className="font-serif text-lg text-[var(--navy)]">{p.price}</div>
                   </div>
                 </div>
               </div>
@@ -179,10 +92,52 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* EO50 brand block */}
+      <section className="border-t border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)] mt-16">
+        <div className="container py-16 md:py-24">
+          <div className="grid md:grid-cols-12 gap-10 items-end">
+            <div className="md:col-span-7">
+              <div className="eyebrow">Sister brand</div>
+              <h2 className="display mt-4 text-3xl md:text-5xl text-[var(--navy)]">
+                Empower Over 50 product line.
+              </h2>
+              <p className="mt-6 text-base md:text-lg leading-relaxed text-[color:color-mix(in_oklch,var(--navy)_72%,transparent)]">
+                Empower Over 50 is a separate brand, but shares the same product-led mindset. It ships tools for people navigating work, identity, and community after fifty. Listed here for context.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <a
+                href={SITE.empowerOver50Url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 h-12 px-6 border border-[var(--navy)] text-[var(--navy)] font-semibold text-sm rounded-sm hover:bg-[var(--navy)] hover:text-[var(--ivory)] transition-colors"
+              >
+                Visit Empower Over 50
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            {EO50_PRODUCTS.map((name) => (
+              <div
+                key={name}
+                className="bg-[var(--card)] border border-[color:color-mix(in_oklch,var(--navy)_12%,transparent)] rounded-sm p-5"
+              >
+                <div className="font-serif text-base font-semibold text-[var(--navy)]">{name}</div>
+                <div className="mt-2 text-xs text-[color:color-mix(in_oklch,var(--navy)_65%,transparent)]">
+                  Empower Over 50
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CTASection
-        eyebrow="Next engagement"
-        title="There is room on the roster."
-        description="We take on a small number of engagements each quarter so every client gets real attention. If the fit looks right, we will say so. If it does not, we will say that too."
+        eyebrow="Want to go deeper on one of these"
+        title="Book a quick call and we will walk it through."
+        description="Any of the products above can be demoed live in thirty minutes, with a candid view of whether it actually fits your situation."
       />
     </Layout>
   );

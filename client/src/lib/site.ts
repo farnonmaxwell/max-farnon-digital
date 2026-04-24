@@ -1,7 +1,7 @@
 // Central site metadata. Update placeholder values before launch.
 export const SITE = {
   name: "Max Farnon Digital",
-  tagline: "AI-Powered Solutions for Modern Businesses",
+  tagline: "AI-Powered Tools for Small Businesses and the People Who Run Them",
   email: "max@maxfarnondigital.com",
   location: "South Florida",
   calendlyUrl: "https://calendly.com/maxfarnondigital/strategy-call",
@@ -14,9 +14,9 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "Products" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Case Studies" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ] as const;
